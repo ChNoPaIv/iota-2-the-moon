@@ -1,0 +1,14 @@
+{
+  "name": "iota-2-the-moon",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "discord.js-commando": "^0.10.0",
+    "node.js": "0.0.0",
+    "request": "^2.85.0"
+  }
+}
