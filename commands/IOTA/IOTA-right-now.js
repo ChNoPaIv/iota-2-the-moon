@@ -20,7 +20,10 @@ class IOTARightNow extends commando.Command {
             }
 
             let data = res.body.data;
+<<<<<<< HEAD
             let  num = data.quotes.USD.market_cap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+=======
+>>>>>>> afd06c8917fe44a25ee46cfca967d9632ec31da3
    
             message.channel.send({
                 "embed": {
@@ -41,7 +44,11 @@ class IOTARightNow extends commando.Command {
                         },
                         {
                             name: "Market Cap:",
+<<<<<<< HEAD
                             value: "$ " + num + " USD",
+=======
+                            value: "$ " + data.quotes.USD.market_cap.toFixed(2).toString() + " USD",
+>>>>>>> afd06c8917fe44a25ee46cfca967d9632ec31da3
                             inline: true
                         },
                         {
@@ -69,6 +76,10 @@ class IOTARightNow extends commando.Command {
                             value: data.quotes.USD.percent_change_7d.toFixed(2).toString() + "%",
                             inline: true
                         },
+<<<<<<< HEAD
+=======
+
+>>>>>>> afd06c8917fe44a25ee46cfca967d9632ec31da3
                     ]
 
 
