@@ -7,5 +7,5 @@ bot.registry.registerGroup('iota', 'IOTA');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 
-bot.login(process.env.token);
+bot.login(require('./keys.json').keys.token);
 
