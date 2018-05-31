@@ -8,4 +8,6 @@ bot.registry.registerGroup('btc', 'BTC');
 bot.registry.registerGroup('c', 'C');
 bot.registry.registerCommandsIn(__dirname + "/commands");
 
-bot.login(process.env.ACCESS_TOKEN);
+// bot.login(process.env.ACCESS_TOKEN);
+bot.login("NDQ0NTM2ODEzNzgxMjU0MTQ0.DdyaXA.GNLPN5IEemGFMfT7kj3ABQZu1EU");
+
