@@ -35,11 +35,15 @@ class Datamanager {
             for(let i in response.data) {
                 if(response.data[i].symbol == coinSymbol) {
                     foundSymbol = response.data[i].symbol;
-                    console.log(response.data[i].symbol);
-                    console.log(response.data[i]);
                     currentData = response.data[i];
                 }
             }
+
+            if(foundSymbol == false) { 
+                message.channel.send("This cryptocurrency does not exist in our data base!");
+                return;
+            }
+
             imgSymbolURL = getCoinImg[foundSymbol.toLowerCase()];
 
             let  num = currentData.quotes.USD.market_cap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
