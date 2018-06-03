@@ -10,3 +10,4 @@ bot.registry.registerCommandsIn(__dirname + "/commands");
 
 bot.login(process.env.ACCESS_TOKEN);
 
+
