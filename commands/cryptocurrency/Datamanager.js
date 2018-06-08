@@ -7,16 +7,92 @@ class Datamanager {
 
     constructor() {}
 
-    checkImgURL(coinImg, imgURL, coinSymbol) {
-        if(coinImg.hasOwnProperty(coinSymbol)) {
-            imgURL = coinImg[coinSymbol];
-            return true;
-        } else { return false; }
-    }
+    top10Data(message) {
+        getJSON('https://api.coinmarketcap.com/v2/ticker/?convert=NOK&limit=10&sort=rank', function(error, response) {
+            let t = 0;
 
-    httpGet(url) {
-        let http = new XMLHttpRequest();
-        
+            let sortable = [];
+
+            for(let coin in response.data) {
+                sortable.push([coin, response.data[coin]]);
+            }
+
+            sortable.sort(function(a, b) {
+                return a[1].rank - b[1].rank;
+            })
+
+            let imgSymbolURL = getCoinImg[sortable[0][1].symbol.toLowerCase()];
+
+            console.log(sortable[0][1]);
+
+            message.channel.send({
+                "embed": {
+                    title: '__**Top 10**__',
+                    color: 1548984,
+                    thumbnail: {
+                        url: imgSymbolURL
+                    },
+                    author: {
+                        icon_url: "https://i.gyazo.com/e3b5e3b6d75b12a87b088a42d56f3496.png",
+                        name: "iIllumination"
+                    },
+                    fields: [
+                        {
+                            name: "Rank 1 - " + sortable[0][1].name,
+                            value: "_Price - " + sortable[0][1].quotes.USD.price.toFixed(2).toString() + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 2 - " + sortable[1][1].name,
+                            value: "_Price - " + sortable[1][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 3 - " + sortable[2][1].name,
+                            value: "_Price - " + sortable[2][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 4 - " + sortable[3][1].name,
+                            value: "_Price - " + sortable[3][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 5 - " + sortable[4][1].name,
+                            value: "_Price - " + sortable[4][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 6 - " + sortable[5][1].name,
+                            value: "_Price - " + sortable[5][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 7 - " + sortable[6][1].name,
+                            value: "_Price - " + sortable[6][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 8 - " + sortable[7][1].name,
+                            value: "_Price - " + sortable[7][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 9 - " + sortable[8][1].name,
+                            value: "_Price- " + sortable[8][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        },
+                        {
+                            name: "Rank 10 - " + sortable[9][1].name, 
+                            value: "_Price - " + sortable[9][1].quotes.USD.price.toFixed(2).toString()  + " $_",
+                            inline: true
+                        }
+                    ]
+                }
+            })
+
+
+        })
     }
 
     getData(message, coinSymbol) {
