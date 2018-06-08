@@ -6,7 +6,6 @@ bot.registry.registerGroup('c', 'C');
 bot.registry.registerGroup('top10', 'TOP10');
 bot.registry.registerCommandsIn(__dirname + "/commands");
 
-//bot.login(process.env.ACCESS_TOKEN);
-bot.login("NDQ0NTM2ODEzNzgxMjU0MTQ0.DfH_hA.O8SijOplfrrb0uZf67c1Q4TOmwA");
+bot.login(process.env.ACCESS_TOKEN);
 
 
